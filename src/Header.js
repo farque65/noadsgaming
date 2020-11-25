@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Header.css";
 import logo from'./noadsgaming_logo.png';
-import { Forum, Casino, SportsEsports, ArrowBackIos, EmojiPeople } from '@material-ui/icons';
+import { Casino, SportsEsports, ArrowBackIos, EmojiPeople } from '@material-ui/icons';
 import { IconButton, Tooltip } from "@material-ui/core"
 import { Link, useHistory } from "react-router-dom";
 
@@ -18,7 +18,7 @@ function Header({ backButton }) {
 					<p className="header__slogan">"Online Game Resources Without The Ads"</p>
 				)}
 				<Link to="/">
-					<img src={logo} className="header__logo" title="Home"/>
+					<img src={logo} className="header__logo" title="Home" alt=""/>
 				</Link>
 				<div className="header__toolbar">
 					<Link to="/chat">
