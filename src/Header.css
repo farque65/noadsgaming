@@ -22,3 +22,7 @@
 	padding: 5px;
 	margin-left: 5px;
 }
+
+.header__popOutMenu {
+	float: left;
+}
