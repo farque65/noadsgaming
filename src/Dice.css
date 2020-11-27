@@ -48,6 +48,7 @@
 .dice__image {
 	color: black;
 	display: flex;
-	font-size: 10rem;
+	font-size: 8rem;
 	justify-content: center;
+	width: auto !important;
 }

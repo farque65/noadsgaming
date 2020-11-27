@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import "./Header.css";
 import logo from'./noadsgaming_logo.png';
 import { Casino, SportsEsports, ArrowBackIos, EmojiPeople, DehazeOutlined } from '@material-ui/icons';
@@ -85,17 +85,20 @@ function Header({ backButton }) {
 				</div>
 			</div>
 		) : (
-			<div className="header">
+			<div className="header__minimized">
 				<Link to="/">
-					<img src={logo} className="header__logo" title="Home" alt=""/>
+					<img src={logo} className="header__logo__minimized" title="Home" alt=""/>
 				</Link>
-				<div className="header__toolbar">
+				<div className="header__toolbar__minimized">
 					<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
 						<DehazeOutlined />
 					</Button>
 					<Menu
 						id="simple-menu"
 						anchorEl={anchorEl}
+						getContentAnchorEl={null}
+						anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+						transformOrigin={{ vertical: "top", horizontal: "center" }}
 						keepMounted
 						open={Boolean(anchorEl)}
 						onClose={handleClose}
