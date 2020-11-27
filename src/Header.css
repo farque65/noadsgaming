@@ -6,8 +6,25 @@
 	background-color: #1CD3F8;
 }
 
+.header__minimized {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	border-bottom: 1px solid #f9f9f9;
+	background-color: #1CD3F8;
+	height: 50px;
+}
+
 .header__logo {
 	height: 40px;
+	object-fit: contain;
+	background-color: #FFE800;
+	border-radius: 5px;
+	padding: 5px;
+}
+
+.header__logo__minimized {
+	height: 30px;
 	object-fit: contain;
 	background-color: #FFE800;
 	border-radius: 5px;
@@ -23,6 +40,6 @@
 	margin-left: 5px;
 }
 
-.header__popOutMenu {
-	float: left;
+.header__toolbar__minimized > Menu {
+	margin-right: 50px !important;
 }
