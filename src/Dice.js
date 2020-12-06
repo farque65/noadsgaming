@@ -3,7 +3,7 @@ import "./Dice.css"
 
 const Dice = () => {
 	const [diceCount, setDiceCount] = useState();
-	const [dice, setDice] = useState();
+	const [dice, setDice] = useState([]);
 	const diceOptions = ['\u2680', '\u2681', '\u2682', '\u2683', '\u2684', '\u2685'];
 	const count = [
 		{ number: 0 },
@@ -14,6 +14,75 @@ const Dice = () => {
 		{ number: 5 },
 		{ number: 6 },
 	];
+	function renderTable(data) {
+		if (data.length < 4) {
+			return (
+				<table>
+					<tbody>
+						<tr>
+						{
+							data.map((item)=>(
+								<td className="dice__td">{item}</td>
+							))
+						}
+						</tr>
+					</tbody>
+				</table>
+			)
+		}
+		if (data.length === 4) {
+			return (
+				<table>
+					<tbody>
+						<tr>
+							<td className="dice__td">{data[0]}</td>
+							<td className="dice__td">{data[1]}</td>
+						</tr>
+						<tr>
+							<td className="dice__td">{data[2]}</td>
+							<td className="dice__td">{data[3]}</td>
+						</tr>
+					</tbody>
+				</table>
+			)
+		}
+		if (data.length === 5) {
+			return (
+				<table>
+					<tbody>
+						<tr>
+							<td className="dice__td">{data[0]}</td>
+							<td className="dice__td">{data[1]}</td>
+							<td className="dice__td">{data[2]}</td>
+						</tr>
+						<tr>
+							<td className="dice__td">{data[3]}</td>
+							<td className="dice__td">{data[4]}</td>
+						</tr>
+					</tbody>
+				</table>
+			)
+		}
+		if (data.length === 6) {
+			return (
+				<table>
+					<tbody>
+						<tr>
+							<td className="dice__td">{data[0]}</td>
+							<td className="dice__td">{data[1]}</td>
+							<td className="dice__td">{data[2]}</td>
+						</tr>
+						<tr>
+							<td className="dice__td">{data[3]}</td>
+							<td className="dice__td">{data[4]}</td>
+							<td className="dice__td">{data[5]}</td>
+						</tr>
+					</tbody>
+				</table>
+			)
+		}
+
+	}
 	return (
 		<div>
 			<div className="dice__panelContainer">
@@ -37,17 +106,19 @@ const Dice = () => {
 								()=>{
 									var i;
 									var faceValue;
-									var output = '';
+									var output = [];
 									for (i = 0; i < diceCount; i++) {
 										faceValue = Math.floor(Math.random() * 6);
-										output += diceOptions[faceValue];
+										output.push(diceOptions[faceValue]);
 									}
 									setDice(output);
 								}
 							}
 						/>
 					</div>
-					<div className="dice__image" >{dice}</div>
+					<div className="dice__inputContainer">
+						{renderTable(dice)}
+					</div>
 				</div>
 			</div>
 		</div>

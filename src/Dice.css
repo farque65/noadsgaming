@@ -36,7 +36,7 @@
 .dice__roller {
 	background: #FFE800;
 	border-radius: 5px;
-	width: 10%;
+	width: 50px;
 	height: 45px;
 	border: 1px solid;
 	margin-top: 10px;
@@ -48,7 +48,21 @@
 .dice__image {
 	color: black;
 	display: flex;
-	font-size: 8rem;
 	justify-content: center;
-	width: auto !important;
+}
+
+.dice__imageContainer {
+	display: flex;
+	margin-top: 5vh;
+	justify-content: center;
+}
+
+.dice__td {
+	font-size: 15vh;
+}
+
+@media screen and (max-width: 620px) {
+	.dice__td {
+		font-size: 10vh;
+	}
 }
