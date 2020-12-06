@@ -29,6 +29,10 @@ function App() {
               <Header/>
               <Dice />
           </Route>
+          <Route path="/leaderboard">
+              <Header backButton="/"/>
+              <LeaderBoard />
+          </Route>
           <Route path="/">
               <Header/>
               <LeaderBoard />

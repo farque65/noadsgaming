@@ -61,7 +61,7 @@ function Header({ backButton }) {
 						<img src={logo} className="header__logo" title="Home" alt=""/>
 					</Link>
 				<div className="header__toolbar">
-					<Link to="/chat">
+					<Link to="/leaderboard">
 						<Tooltip title="Top Games Leader Board" placement="bottom">
 							<IconButton>
 								<EmojiPeople title="LeaderBoard" fontSize="large" className="header__icon"/>

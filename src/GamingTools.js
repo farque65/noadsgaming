@@ -36,14 +36,12 @@ const GamingTools = () => {
 			} else {
 				result[teamNamesArray[j]].push(member);
 			}
-			console.log('view length ', j);
 			if ((teamNamesArray.length - 1) === j) {
 				j = 0;
 			} else {
 				j++;
 			}
 		});
-		console.log('check things ', result);
 		let resultString = '';
 		let prefix = false;
 		_.forEach(result, (team, key)=> {
