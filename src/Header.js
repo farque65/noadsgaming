@@ -1,8 +1,8 @@
 import React from 'react'
 import "./Header.css";
 import logo from'./noadsgaming_logo.png';
-import { Casino, SportsEsports, ArrowBackIos, EmojiPeople, DehazeOutlined } from '@material-ui/icons';
-import { IconButton, Tooltip, Menu, MenuItem, Button } from "@material-ui/core"
+import { Casino, SportsEsports, ArrowBackIos, EmojiPeople, ExpandMore, HomeOutlined } from '@material-ui/icons';
+import { IconButton, Tooltip, Accordion, AccordionSummary, AccordionDetails } from "@material-ui/core"
 import { Link, useHistory } from "react-router-dom";
 
 const viewportContext = React.createContext({});
@@ -34,15 +34,6 @@ const useViewport = () => {
 
 function Header({ backButton }) {
 	const history = useHistory();
-	const [anchorEl, setAnchorEl] = React.useState(null);
-
-	const handleClick = (event) => {
-	setAnchorEl(event.currentTarget);
-	};
-
-	const handleClose = () => {
-	setAnchorEl(null);
-	};
 
 	const CornerToolBar = () => {
 		const { width } = useViewport();
@@ -55,12 +46,18 @@ function Header({ backButton }) {
 							<ArrowBackIos fontSize="large" className="header__icon"/>
 						</IconButton>
 					) : (
-						<p className="header__slogan">"Online Game Resources Without The Ads"</p>
+						<Link to="/">
+							<img src={logo} className="header__logo" title="Home" alt=""/>
+						</Link>
 					)}
-					<Link to="/">
-						<img src={logo} className="header__logo" title="Home" alt=""/>
-					</Link>
 				<div className="header__toolbar">
+					<Link to="/">
+						<Tooltip title="Home" placement="bottom">
+							<IconButton>
+								<HomeOutlined title="Home" fontSize="large" className="header__icon"/>
+							</IconButton>
+						</Tooltip>
+					</Link>
 					<Link to="/leaderboard">
 						<Tooltip title="Top Games Leader Board" placement="bottom">
 							<IconButton>
@@ -85,42 +82,43 @@ function Header({ backButton }) {
 				</div>
 			</div>
 		) : (
-			<div className="header__minimized">
-				<Link to="/">
-					<img src={logo} className="header__logo__minimized" title="Home" alt=""/>
-				</Link>
-				<div className="header__toolbar__minimized">
-					<Button aria-controls="simple-menu" aria-haspopup="true" onClick={handleClick}>
-						<DehazeOutlined />
-					</Button>
-					<Menu
-						id="simple-menu"
-						anchorEl={anchorEl}
-						getContentAnchorEl={null}
-						anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-						transformOrigin={{ vertical: "top", horizontal: "center" }}
-						keepMounted
-						open={Boolean(anchorEl)}
-						onClose={handleClose}
-						className="header__popOutMenu"
+			<div>
+				<Accordion>
+					<AccordionSummary
+						expandIcon={<ExpandMore />}
+						aria-label="Expand"
+						id="header__accordianMenu"
+						className="header__minimized"
 						>
-						<MenuItem onClick={handleClose}>
-							<Link to="/chat">
-								LeaderBoard
-							</Link>
-						</MenuItem>
-						<MenuItem onClick={handleClose}>
-							<Link to="/dice">
-								Dice
-							</Link>
-						</MenuItem>
-						<MenuItem onClick={handleClose}>
-							<Link to="/gametools">
-								Game Tools
-							</Link>
-						</MenuItem>
-					</Menu>
-				</div>
+						<img src={logo} className="header__logo__minimized" title="Home" alt=""/>
+					</AccordionSummary>
+					<AccordionDetails
+						id="header__accordianDetails"
+					>
+						<ul className="menu">
+							<li>
+								<Link to="/">
+									Home
+								</Link>
+							</li>
+							<li>
+								<Link to="/leaderboard">
+									LeaderBoard
+								</Link>
+							</li>
+							<li>
+								<Link to="/dice">
+									Dice
+								</Link>
+							</li>
+							<li>
+								<Link to="/gametools">
+									Game Tools
+								</Link>
+							</li>
+						</ul>
+					</AccordionDetails>
+				</Accordion>
 			</div>
 		);
 	};
