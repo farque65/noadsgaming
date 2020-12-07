@@ -1,9 +1,9 @@
 import React from 'react'
 import "./Header.css";
 import logo from'./noadsgaming_logo.png';
-import { Casino, SportsEsports, ArrowBackIos, EmojiPeople, ExpandMore, HomeOutlined } from '@material-ui/icons';
+import { Casino, SportsEsports, EmojiPeople, ExpandMore, HomeOutlined } from '@material-ui/icons';
 import { IconButton, Tooltip, Accordion, AccordionSummary, AccordionDetails } from "@material-ui/core"
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const viewportContext = React.createContext({});
 
@@ -32,24 +32,16 @@ const useViewport = () => {
 	return { width, height };
 };
 
-function Header({ backButton }) {
-	const history = useHistory();
-
+function Header() {
 	const CornerToolBar = () => {
 		const { width } = useViewport();
 		const breakpoint = 620;
 	  
 		return width > breakpoint ? (
 			<div className="header">
-					{backButton ? (
-						<IconButton onClick={() => history.replace(backButton)}>
-							<ArrowBackIos fontSize="large" className="header__icon"/>
-						</IconButton>
-					) : (
-						<Link to="/">
-							<img src={logo} className="header__logo" title="Home" alt=""/>
-						</Link>
-					)}
+				<Link to="/">
+					<img src={logo} className="header__logo" title="Home" alt=""/>
+				</Link>
 				<div className="header__toolbar">
 					<Link to="/">
 						<Tooltip title="Home" placement="bottom">

@@ -84,41 +84,39 @@ const Dice = () => {
 
 	}
 	return (
-		<div>
-			<div className="dice__panelContainer">
-				<div className="dice">
-					<div className="dice__inputContainer">
-						<select
-							className="dice__number"
-							name="count"
-							value={count.number}
-							onChange={e => setDiceCount(e.target.value)}
-						>
-							{count.map((e, key) => {
-								return <option key={key} value={e.number}>{e.number}</option>;
-							})}
-						</select>
-						<input
-							className="dice__roller"
-							type="button"
-							value="Roll"
-							onClick={
-								()=>{
-									var i;
-									var faceValue;
-									var output = [];
-									for (i = 0; i < diceCount; i++) {
-										faceValue = Math.floor(Math.random() * 6);
-										output.push(diceOptions[faceValue]);
-									}
-									setDice(output);
+		<div className="dice__panelContainer">
+			<div className="dice">
+				<div className="dice__inputContainer">
+					<select
+						className="dice__number"
+						name="count"
+						value={count.number}
+						onChange={e => setDiceCount(e.target.value)}
+					>
+						{count.map((e, key) => {
+							return <option key={key} value={e.number}>{e.number}</option>;
+						})}
+					</select>
+					<input
+						className="dice__roller"
+						type="button"
+						value="Roll"
+						onClick={
+							()=>{
+								var i;
+								var faceValue;
+								var output = [];
+								for (i = 0; i < diceCount; i++) {
+									faceValue = Math.floor(Math.random() * 6);
+									output.push(diceOptions[faceValue]);
 								}
+								setDice(output);
 							}
-						/>
-					</div>
-					<div className="dice__inputContainer">
-						{renderTable(dice)}
-					</div>
+						}
+					/>
+				</div>
+				<div className="dice__inputContainer">
+					{renderTable(dice)}
 				</div>
 			</div>
 		</div>
