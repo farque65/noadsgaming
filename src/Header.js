@@ -39,9 +39,7 @@ function Header() {
 	  
 		return width > breakpoint ? (
 			<div className="header">
-				<Link to="/">
-					<img src={logo} className="header__logo" title="Home" alt=""/>
-				</Link>
+				<img src={logo} className="header__logo" title="Home" alt=""/>
 				<div className="header__toolbar">
 					<Link to="/">
 						<Tooltip title="Home" placement="bottom">
